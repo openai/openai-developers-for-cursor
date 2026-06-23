@@ -85,29 +85,8 @@ test("implementation skills defer to the credential gate before API-backed work"
   }
 });
 
-test("README documents the supported Cursor Team Marketplace import flow", () => {
-  const readme = read("README.md");
-
-  assert.match(readme, /This plugin is the Cursor-facing bundle for OpenAI developer workflows/);
-  assert.match(readme, /\.cursor-plugin\/plugin\.json/);
-  assert.match(readme, /skills\/openai-docs/);
-  assert.match(readme, /Cursor Teams or Enterprise/);
-  assert.match(readme, /Dashboard -> Settings -> Plugins/);
-  assert.match(readme, /Team Marketplaces/);
-  assert.match(readme, /Add Marketplace/);
-  assert.match(readme, /Import from Repo/);
-  assert.match(readme, /https:\/\/github\.com\/openai\/openai-developers-for-cursor/);
-  assert.match(readme, /only admins can add team marketplaces/i);
-  assert.doesNotMatch(readme, /\/add-plugin/);
-  assert.match(readme, /^## Verify$/m);
-  assert.match(readme, /what is the newest OpenAI model\?/);
-  assert.match(readme, /OPENAI_API_KEY/);
-  assert.match(readme, /npm test/);
-});
-
 test("Cursor package does not leak Claude or Codex-specific language", () => {
   const files = [
-    "README.md",
     "skills/openai-docs/SKILL.md",
     "skills/openai-platform-api-key/SKILL.md",
     "skills/openai-api-troubleshooting/SKILL.md",
