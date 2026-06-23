@@ -16,11 +16,17 @@ This plugin is the Cursor-facing bundle for OpenAI developer workflows. It pairs
 
 ## Install
 
-Install from GitHub in Cursor:
+For Cursor Teams or Enterprise, import this repository through a team marketplace:
 
-```text
-/add-plugin https://github.com/openai/openai-developers-for-cursor.git
-```
+1. Open **Dashboard -> Settings -> Plugins** in Cursor.
+2. Under **Team Marketplaces**, select **Add Marketplace**.
+3. Select **Import from Repo** and enter `https://github.com/openai/openai-developers-for-cursor`.
+4. Add the OpenAI Developers plugin, configure team access, and save the marketplace.
+5. Install the plugin from the **Plugins** panel in Cursor.
+
+On Enterprise plans, only admins can add team marketplaces. See Cursor's
+[plugin installation documentation](https://cursor.com/docs/plugins#add-a-team-marketplace)
+for details.
 
 ## Verify
 
