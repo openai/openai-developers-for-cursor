@@ -37,6 +37,7 @@ test("plugin manifest exposes OpenAI Developers components", () => {
 
   assert.equal(plugin.name, "openai-developers");
   assert.equal(plugin.displayName, "OpenAI Developers");
+  assert.equal(plugin.license, "Apache-2.0");
   assert.equal(plugin.logo, "assets/openai-platform.png");
   assert.equal(
     plugin.repository,
