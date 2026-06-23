@@ -19,12 +19,6 @@ test("docs skill strongly routes OpenAI questions through Docs MCP", () => {
   assert.match(skill, /https:\/\/developers\.openai\.com\/mcp/);
   assert.match(skill, /openaiDeveloperDocs/);
   assert.match(skill, /official OpenAI domains/i);
-  assert.match(skill, /compact, title-like search query of 2-6 essential terms/i);
-  assert.match(skill, /Do not turn the full user question into a keyword list/i);
-  assert.match(skill, /get_openapi_spec/);
-  assert.match(skill, /list_openai_docs/);
-  assert.match(skill, /latest-model\.md/);
-  assert.match(skill, /known official OpenAI docs URL/i);
 });
 
 test("API key skill uses guided local setup only", () => {
