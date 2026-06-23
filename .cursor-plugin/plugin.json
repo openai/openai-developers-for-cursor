@@ -1,0 +1,24 @@
+{
+  "name": "openai-developers",
+  "displayName": "OpenAI Developers",
+  "version": "0.1.0",
+  "description": "Build with OpenAI APIs, Agents SDK, and ChatGPT Apps from Cursor.",
+  "author": {
+    "name": "OpenAI"
+  },
+  "publisher": "OpenAI",
+  "homepage": "https://developers.openai.com/",
+  "repository": "https://github.com/openai/openai-developers-for-cursor",
+  "logo": "assets/openai-platform.png",
+  "keywords": [
+    "openai-platform",
+    "agents-sdk",
+    "chatgpt-apps",
+    "apps-sdk",
+    "mcp",
+    "cursor"
+  ],
+  "category": "developer-tools",
+  "skills": "./skills/",
+  "mcpServers": "./mcp.json"
+}
