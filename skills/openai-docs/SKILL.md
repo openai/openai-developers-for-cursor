@@ -9,9 +9,9 @@ Use the Cursor-configured OpenAI Docs MCP server at `https://developers.openai.c
 
 ## API key setup
 
-For requests to build, run, configure, debug, or implement an API-backed app, use `openai-platform-api-key` before implementation. Docs-only questions do not need that gate.
+For requests that require a live OpenAI API call, use `openai-platform-api-key` first when available. Missing credentials block only the live call. They do not block requested source or configuration edits, documentation retrieval, or offline, mocked, static, fixture-based, or syntax validation.
 
-For latest/current/default/unspecified model migration or prompting requests, complete the read-only resolver and guide fetch before the credential gate. The credential gate blocks implementation, not current-guidance retrieval.
+For latest/current/default/unspecified model migration or prompting requests, complete the read-only resolver and guide fetch before any live-call credential check. Continue with requested source edits and offline validation even when no API key is available; skip only validation that actually sends a live API request, and say that it was skipped.
 
 ## First action for latest-model work
 
@@ -20,7 +20,7 @@ Before inspecting the project, fetching docs, or checking credentials, classify 
 - **Latest/current prompting guidance, or a requested change with a latest/current/newest/recommended/default/flagship/unspecified target:** immediately run the resolver and inspect its JSON. This includes changing prompts, model pickers, model references, or SDK integrations and asking which model to migrate to. Do not directly fetch `latest-model.md` first.
 - **Pure model-selection question with no requested change or prompting guidance:** fetch `https://developers.openai.com/api/docs/guides/latest-model.md` directly. Do not run the resolver.
 - **Requested change with an explicit target model:** preserve that target and do not run the resolver. For GPT-5.6 Sol or a GPT-5.6-family migration, fetch the live GPT-5.6 model-guidance page and read `references/upgrading-to-gpt-5p6-sol.md`.
-- **Prompting or migration guidance for an explicitly named GPT-5-family model:** fetch `https://developers.openai.com/api/docs/guides/model-guidance?model=<requested-model>` and extract the relevant migration section or `## Prompting Best Practices` through the next H2. Do not substitute latest-model guidance.
+- **Prompting or migration guidance for an explicitly named GPT-5-family model:** fetch `https://developers.openai.com/api/docs/guides/model-guidance?model=<requested-model>` and extract the relevant migration section or `## Prompting Best Practices` through the next H2. If that exact route remains unavailable after one focused retry or official-domain fallback, say that the official model-specific guide could not be retrieved. Do not derive another URL, substitute latest-model guidance, or use guidance for a different model.
 
 Run the resolver without relying on executable bits:
 
@@ -43,7 +43,7 @@ If no compatible Node.js runtime is available, fetch `latest-model.md` through D
 8. Preserve explicit targets even when current docs name a newer model. Mention newer guidance only as optional.
 9. Treat the resolver's migration and prompting URLs as opaque. Fetch those exact URLs; do not derive, substitute, or append a model query.
 10. If a prompting URL resolves to a combined model-guidance page, extract only `## Prompting Best Practices` through the next H2.
-11. If a fetched guide contains only a title or no substantive body, retry the exact markdown URL through MCP/search. If that fails, use the matching bundled reference and disclose the fallback.
+11. If a fetched guide contains only a title or no substantive body, retry the exact markdown URL through MCP/search. If that fails, use a bundled fallback only when it matches the same requested model or resolved model family, and disclose the fallback. Otherwise return bounded uncertainty.
 12. If Docs MCP is unavailable or unhelpful, use web search only on official OpenAI domains such as `developers.openai.com` and `platform.openai.com`.
 
 ## Migration rules

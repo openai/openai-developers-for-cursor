@@ -44,6 +44,8 @@ test("docs skill ships current-model resolver and fallback references", () => {
   assert.match(skill, /latestModelInfo/);
   assert.match(skill, /return bounded uncertainty/i);
   assert.match(skill, /Do not infer the latest model from bundled static data/i);
+  assert.match(skill, /Missing credentials block only the live call/i);
+  assert.match(skill, /Do not derive another URL, substitute latest-model guidance, or use guidance for a different model/i);
   assert.doesNotMatch(skill, /references\/latest-model\.md/);
   assert.match(skill, /Leave historical docs, examples, eval baselines, fixtures/i);
   assert.match(skill, /## Validation/);
