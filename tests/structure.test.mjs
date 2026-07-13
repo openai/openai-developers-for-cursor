@@ -34,8 +34,10 @@ test("public release includes licensing and security policy files", () => {
 
 test("plugin manifest exposes OpenAI Developers components", () => {
   const plugin = readJson(".cursor-plugin/plugin.json");
+  const packageJson = readJson("package.json");
 
   assert.equal(plugin.name, "openai-developers");
+  assert.equal(plugin.version, packageJson.version);
   assert.equal(plugin.displayName, "OpenAI Developers");
   assert.equal(plugin.license, "Apache-2.0");
   assert.equal(plugin.logo, "assets/openai-platform.png");
