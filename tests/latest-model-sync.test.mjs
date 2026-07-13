@@ -25,7 +25,6 @@ test("docs skill ships current-model resolver and fallback references", () => {
   const expected = [
     "skills/openai-docs/scripts/resolve-latest-model-info",
     "skills/openai-docs/scripts/resolve-latest-model-info.cjs",
-    "skills/openai-docs/references/latest-model.md",
     "skills/openai-docs/references/prompting-guide.md",
     "skills/openai-docs/references/upgrade-guide.md",
     "skills/openai-docs/references/upgrading-to-gpt-5p6-sol.md",
@@ -43,6 +42,9 @@ test("docs skill ships current-model resolver and fallback references", () => {
   assert.match(skill, /only a title or no substantive body/i);
   assert.match(skill, /If no compatible Node\.js runtime is available/i);
   assert.match(skill, /latestModelInfo/);
+  assert.match(skill, /return bounded uncertainty/i);
+  assert.match(skill, /Do not infer the latest model from bundled static data/i);
+  assert.doesNotMatch(skill, /references\/latest-model\.md/);
   assert.match(skill, /Leave historical docs, examples, eval baselines, fixtures/i);
   assert.match(skill, /## Validation/);
   assert.doesNotMatch(skill, /load_workspace_dependencies|Codex/);
