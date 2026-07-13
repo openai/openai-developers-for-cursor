@@ -9,7 +9,7 @@ Use the Cursor-configured OpenAI Docs MCP server at `https://developers.openai.c
 
 ## API key setup
 
-For requests that require a live OpenAI API call, use `openai-platform-api-key` first when available. Missing credentials block only the live call. They do not block requested source or configuration edits, documentation retrieval, or offline, mocked, static, fixture-based, or syntax validation.
+For model and prompt migrations, missing credentials block only the live call. They do not block requested migration source or configuration edits, documentation retrieval, or offline, mocked, static, fixture-based, or syntax validation. For other requests to build, run, configure, debug, or implement API-backed functionality, use `openai-platform-api-key` first when available.
 
 Complete read-only documentation retrieval before any live-call credential check. Continue with requested source edits and offline validation when no API key is available; skip only validation that actually sends a live API request, and say that it was skipped.
 
@@ -20,7 +20,7 @@ Classify the model request before inspecting the project or checking credentials
 - **Dynamic target:** For latest, current, newest, recommended, default, flagship, or otherwise unspecified model selection, prompting, or migration, fetch `https://developers.openai.com/api/docs/guides/latest-model.md`. Read its `latestModelInfo` metadata. For migrations or prompting guidance, resolve the exact `migrationGuide` and `promptingGuide` paths against `https://developers.openai.com` and fetch those exact URLs. Treat the metadata values as opaque; do not derive or substitute another route.
 - **Explicit target:** Preserve the requested model and fetch `https://developers.openai.com/api/docs/guides/latest-model?model=<requested-model>`. For example, use `https://developers.openai.com/api/docs/guides/latest-model?model=gpt-5.6` for GPT-5.6 and `https://developers.openai.com/api/docs/guides/latest-model?model=gpt-5.3-codex` for `gpt-5.3-codex`. Do not replace the explicit target with the current model.
 
-If an exact URL is unavailable or lacks substantive content, retry it once through Docs MCP, then run a compact Docs MCP search for that exact model or page. If necessary, fall back only to official OpenAI domains such as `developers.openai.com` and `platform.openai.com`.
+If an exact URL is unavailable or lacks substantive content, retry it once through Docs MCP, then run a compact Docs MCP search for that exact model or page. If necessary, fall back only to official OpenAI domains such as `developers.openai.com` and `platform.openai.com`. Do not widen to Slack, internal docs, private repositories, or historical launch artifacts.
 
 If current-model metadata or an explicit model guide still cannot be retrieved, say what could not be verified and return bounded uncertainty. Do not infer current model facts, migration steps, limits, pricing, availability, parameters, or capabilities from static knowledge.
 
