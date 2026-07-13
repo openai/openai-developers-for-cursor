@@ -96,7 +96,7 @@ test("Cursor MCP config points at the public OpenAI Docs MCP server", () => {
     mcpServers: {
       openaiDeveloperDocs: {
         type: "http",
-        url: "https://developers.openai.com/mcp",
+        url: "https://developers.openai.com/mcp?source=cursor",
       },
     },
   });
