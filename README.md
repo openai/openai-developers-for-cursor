@@ -6,7 +6,9 @@ This plugin is the Cursor-facing bundle for OpenAI developer workflows. It pairs
 
 - `.cursor-plugin/plugin.json` declares the `OpenAI Developers` Cursor plugin and logo.
 - `mcp.json` configures the public OpenAI Docs MCP server.
-- `skills/openai-docs/` routes OpenAI product, API, model, and SDK questions through OpenAI documentation.
+- `skills/openai-docs/` routes OpenAI product, API, model, and SDK questions through OpenAI documentation, with current-model resolution, migration guidance, and bundled fallbacks.
+- `skills/openai-docs/scripts/resolve-latest-model-info` resolves the current model and exact migration and prompting guide URLs.
+- `skills/openai-docs/references/` provides offline fallbacks for model selection, prompting, and GPT-5.6 migrations.
 - `skills/openai-platform-api-key/` guides local `OPENAI_API_KEY` setup for API-backed work.
 - `skills/openai-api-troubleshooting/` classifies common runtime API failures and routes users to the right next step.
 - `skills/agents-sdk/` helps plan and build Agents SDK applications.
