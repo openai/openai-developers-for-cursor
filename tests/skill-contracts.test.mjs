@@ -29,6 +29,7 @@ test("API key skill uses guided local setup only", () => {
   assert.match(skill, /provider-unspecified AI app/i);
   assert.match(skill, /requests phrased only as "using AI"/i);
   assert.match(skill, /credential gate/i);
+  assert.match(skill, /Do not gate model or prompt migrations/i);
   assert.match(skill, /\.env\.local/);
   assert.match(skill, /reuse an existing key/i);
   assert.match(
