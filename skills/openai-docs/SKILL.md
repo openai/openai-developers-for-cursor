@@ -11,7 +11,7 @@ Use the Cursor-configured OpenAI Docs MCP server at `https://developers.openai.c
 
 For model and prompt migrations, missing credentials block only the live call. They do not block requested migration source or configuration edits, documentation retrieval, or offline, mocked, static, fixture-based, or syntax validation. For other requests to build, run, configure, debug, or implement API-backed functionality, use `openai-platform-api-key` first when available.
 
-Complete read-only documentation retrieval before any live-call credential check. Continue with requested source edits and offline validation when no API key is available; skip only validation that actually sends a live API request, and say that it was skipped.
+For model migration or prompting-guidance requests, retrieve the relevant current guidance before any live-call credential check. Continue with requested source edits and offline validation when no API key is available; skip only validation that actually sends a live API request, and say that it was skipped.
 
 ## Model guidance routing
 
